@@ -54,7 +54,7 @@ object Main {
     val recordBytes = msg.toByteArray
     val record: ProducerRecord[Array[Byte], Array[Byte]] = new ProducerRecord(topic, messageTimeBytes, recordBytes)
 
-    println(s"Sending protobuf message (which byte representation is [${recordBytes.mkString(",")}]) to kafka")
+    println(s"Sending protobuf message '${msg.value}' (which byte representation is [${recordBytes.mkString(",")}]) to kafka")
     kafkaWriter.kafkaQueue.offer(record)
   }
 
